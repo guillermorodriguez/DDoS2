@@ -27,6 +27,8 @@ class DDoSTopology(Topo):
             _switch = self.addSwitch(str(_key))
 
             for _host in _value:
-                self.addLink(self.addHost(_host), _switch)
+                _current_host = self.addHost(_host)
+
+                self.addLink(_current_host, _switch)
 
 topos = { 'ddostopology': ( lambda: DDoSTopology() ) }
