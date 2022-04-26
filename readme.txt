@@ -8,12 +8,17 @@ Run the code through the python command line as provided below.
 # Requirements
 Python:     3.9.12
 mininet:    2.3.0
+pyvis=0.1.9
+
+Installation Instructions
+pip install pyvis
 
 # Operating System
 Ubuntu      16.04.6 LTS
 
 # Output
-The program outputs the sequence of identified routers and connected nodes to the out folder under the file name of routes.txt.
+The program outputs the network graphs for a denial of service attack node structure as well as a graph showing the basic network 
+configuration.
 
 # Contributors
 Guillermo Rodriguez     - Section: D01 - R00821937
