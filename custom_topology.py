@@ -3,8 +3,11 @@ import os
 
 class DDoSTopology(Topo):
     
-    def build(self):
+    def __init__(self):
         # Create custom topology for desired configuration
+
+        Topo.__init__(self)
+
         IN_FOLDER = 'routes'
         IN_FILE = 'routes.txt'
 
