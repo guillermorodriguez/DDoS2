@@ -25,3 +25,5 @@ class DDoSTopology(Topo):
 
             for _host in _value:
                 self.addLink(self.addHost(str(_host)), _switch)
+
+topos = { 'ddostopology': ( lambda: DDoSTopology() ) }
