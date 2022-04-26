@@ -21,7 +21,7 @@ class DDoSTopology(Topo):
                 _host = self.addHost('H' + str(_sink))
 
                 if _switch is None:
-                    _switch = self.addSwitch(_source)
+                    _switch = self.addSwitch('S' + str(_source))
 
                 self.addLink(_host, _switch)
 
