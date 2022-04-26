@@ -18,7 +18,7 @@ class DDoSTopology(Topo):
                 _source, _sink = _entry.split(',')[0], _entry.split(',')[1]
                 
                 _host = self.addHost(_sink)
-                _switch = self.AddHost(_source)
+                _switch = self.addSwitch(_source)
 
                 self.addLink(_host, _switch)
 
