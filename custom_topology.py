@@ -14,11 +14,14 @@ class DDoSTopology(Topo):
         _network_matrix = {}
         with open(os.path.join(os.getcwd(), IN_FOLDER, IN_FILE), 'r') as _network_paths:
             # Build node connections
+            _switch = None
             for _entry in _network_paths:
-                _source, _sink = _entry.split(',')[0], _entry.split(',')[1]
+                _source, _sink = _entry.split(',')[0], _entry.split(',')[1].strip()
                 
-                _host = self.addHost(_sink)
-                _switch = self.addSwitch(_source)
+                _host = self.addHost('H' + str(_sink))
+
+                if _switch is None:
+                    _switch = self.addSwitch(_source)
 
                 self.addLink(_host, _switch)
 
