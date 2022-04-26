@@ -17,18 +17,9 @@ class DDoSTopology(Topo):
             for _entry in _network_paths:
                 _source, _sink = _entry.split(',')[0], _entry.split(',')[1]
                 
-                if _source in _network_matrix.keys():
-                    _network_matrix[_source].append(_sink)
-                else:
-                    _network_matrix[_source] = [_sink]
+                _host = self.addHost(_sink)
+                _switch = self.AddHost(_source)
 
-        for _key, _value in _network_matrix.items():
-            # Add hosts and switches
-            _switch = self.addSwitch(str(_key))
-
-            for _host in _value:
-                _current_host = self.addHost(_host)
-
-                self.addLink(_current_host, _switch)
+                self.addLink(_host, _switch)
 
 topos = { 'ddostopology': ( lambda: DDoSTopology() ) }
