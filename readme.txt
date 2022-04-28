@@ -22,4 +22,7 @@ configuration.
 
 # Contributors
 Guillermo Rodriguez     - Section: D01 - R00821937
-
+Yaswanth Kumar Chaganti - Section: 003 - R11801037
+Pratyush Kumar          - Section: 005 - R11563270
+Vijay Kumar Thanikonda  - Section: 003 - R11799896
+Jaswanth Vishnumolakala - Section: 003 - R11803373
