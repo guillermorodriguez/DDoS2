@@ -1,0 +1,108 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 500px;
+            height: 500px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"color": "#6425FF", "id": "10.0.0.0", "label": "10.0.0.0", "shape": "dot", "title": "Node: 10.0.0.0 - Weight: 1", "value": 11}, {"color": "#0602FF", "id": "10.0.0.21", "label": "10.0.0.21", "shape": "dot", "title": "Node: 10.0.0.21 - Weight: 31.189371680559727", "value": 41.18937168055973}, {"color": "#0602FF", "id": "10.0.0.35", "label": "10.0.0.35", "shape": "dot", "title": "Node: 10.0.0.35 - Weight: 30.13309604032669", "value": 40.13309604032669}, {"color": "#0602FF", "id": "10.0.0.34", "label": "10.0.0.34", "shape": "dot", "title": "Node: 10.0.0.34 - Weight: 30.227843915751915", "value": 40.22784391575192}, {"color": "#0602FF", "id": "10.0.0.20", "label": "10.0.0.20", "shape": "dot", "title": "Node: 10.0.0.20 - Weight: 30.94311455709352", "value": 40.94311455709352}, {"color": "#0602FF", "id": "10.0.0.36", "label": "10.0.0.36", "shape": "dot", "title": "Node: 10.0.0.36 - Weight: 29.76524033457345", "value": 39.76524033457345}, {"color": "#0c04FF", "id": "10.0.0.22", "label": "10.0.0.22", "shape": "dot", "title": "Node: 10.0.0.22 - Weight: 15.404803657917787", "value": 25.40480365791779}, {"color": "#0602FF", "id": "10.0.0.23", "label": "10.0.0.23", "shape": "dot", "title": "Node: 10.0.0.23 - Weight: 30.65552140349736", "value": 40.65552140349736}, {"color": "#0c04FF", "id": "10.0.0.37", "label": "10.0.0.37", "shape": "dot", "title": "Node: 10.0.0.37 - Weight: 15.22785454291186", "value": 25.22785454291186}, {"color": "#0602FF", "id": "10.0.0.33", "label": "10.0.0.33", "shape": "dot", "title": "Node: 10.0.0.33 - Weight: 30.61786221087209", "value": 40.61786221087209}, {"color": "#0602FF", "id": "10.0.0.27", "label": "10.0.0.27", "shape": "dot", "title": "Node: 10.0.0.27 - Weight: 30.611588297876995", "value": 40.61158829787699}, {"color": "#0602FF", "id": "10.0.0.26", "label": "10.0.0.26", "shape": "dot", "title": "Node: 10.0.0.26 - Weight: 30.968508502909618", "value": 40.968508502909614}, {"color": "#0602FF", "id": "10.0.0.32", "label": "10.0.0.32", "shape": "dot", "title": "Node: 10.0.0.32 - Weight: 30.48902846088584", "value": 40.48902846088584}, {"color": "#0b04FF", "id": "10.0.0.18", "label": "10.0.0.18", "shape": "dot", "title": "Node: 10.0.0.18 - Weight: 17.020298094890244", "value": 27.020298094890244}, {"color": "#0602FF", "id": "10.0.0.24", "label": "10.0.0.24", "shape": "dot", "title": "Node: 10.0.0.24 - Weight: 30.952526089347312", "value": 40.952526089347316}, {"color": "#0602FF", "id": "10.0.0.30", "label": "10.0.0.30", "shape": "dot", "title": "Node: 10.0.0.30 - Weight: 30.47005027247376", "value": 40.470050272473756}, {"color": "#0602FF", "id": "10.0.0.31", "label": "10.0.0.31", "shape": "dot", "title": "Node: 10.0.0.31 - Weight: 30.67180325477909", "value": 40.67180325477909}, {"color": "#0602FF", "id": "10.0.0.25", "label": "10.0.0.25", "shape": "dot", "title": "Node: 10.0.0.25 - Weight: 30.492804164943667", "value": 40.492804164943664}, {"color": "#0602FF", "id": "10.0.0.19", "label": "10.0.0.19", "shape": "dot", "title": "Node: 10.0.0.19 - Weight: 31.205172416538105", "value": 41.205172416538105}, {"color": "#0602FF", "id": "10.0.0.42", "label": "10.0.0.42", "shape": "dot", "title": "Node: 10.0.0.42 - Weight: 30.06264072690238", "value": 40.06264072690238}, {"color": "#0602FF", "id": "10.0.0.43", "label": "10.0.0.43", "shape": "dot", "title": "Node: 10.0.0.43 - Weight: 29.409293336694397", "value": 39.4092933366944}, {"color": "#0602FF", "id": "10.0.0.41", "label": "10.0.0.41", "shape": "dot", "title": "Node: 10.0.0.41 - Weight: 29.97398380548475", "value": 39.97398380548475}, {"color": "#0602FF", "id": "10.0.0.9", "label": "10.0.0.9", "shape": "dot", "title": "Node: 10.0.0.9 - Weight: 31.78740582981023", "value": 41.787405829810226}, {"color": "#0602FF", "id": "10.0.0.8", "label": "10.0.0.8", "shape": "dot", "title": "Node: 10.0.0.8 - Weight: 31.592011734175784", "value": 41.592011734175784}, {"color": "#0602FF", "id": "10.0.0.40", "label": "10.0.0.40", "shape": "dot", "title": "Node: 10.0.0.40 - Weight: 29.568748849685154", "value": 39.56874884968515}, {"color": "#c84bFF", "id": "10.0.0.50", "label": "10.0.0.50", "shape": "dot", "title": "Node: 10.0.0.50 - Weight: 0", "value": 10}, {"color": "#0602FF", "id": "10.0.0.44", "label": "10.0.0.44", "shape": "dot", "title": "Node: 10.0.0.44 - Weight: 29.29836981478647", "value": 39.29836981478647}, {"color": "#0602FF", "id": "10.0.0.45", "label": "10.0.0.45", "shape": "dot", "title": "Node: 10.0.0.45 - Weight: 30.083146132259017", "value": 40.08314613225902}, {"color": "#0602FF", "id": "10.0.0.47", "label": "10.0.0.47", "shape": "dot", "title": "Node: 10.0.0.47 - Weight: 29.66976342299455", "value": 39.66976342299455}, {"color": "#0602FF", "id": "10.0.0.46", "label": "10.0.0.46", "shape": "dot", "title": "Node: 10.0.0.46 - Weight: 29.507131542491322", "value": 39.50713154249132}, {"color": "#0602FF", "id": "10.0.0.3", "label": "10.0.0.3", "shape": "dot", "title": "Node: 10.0.0.3 - Weight: 32.11879496836135", "value": 42.11879496836135}, {"color": "#1207FF", "id": "10.0.0.2", "label": "10.0.0.2", "shape": "dot", "title": "Node: 10.0.0.2 - Weight: 9.667352710792548", "value": 19.66735271079255}, {"color": "#0602FF", "id": "10.0.0.48", "label": "10.0.0.48", "shape": "dot", "title": "Node: 10.0.0.48 - Weight: 29.439472444653795", "value": 39.439472444653795}, {"color": "#c84bFF", "id": "10.0.0.1", "label": "10.0.0.1", "shape": "dot", "title": "Node: 10.0.0.1 - Weight: 0", "value": 10}, {"color": "#0602FF", "id": "10.0.0.49", "label": "10.0.0.49", "shape": "dot", "title": "Node: 10.0.0.49 - Weight: 29.83073795766592", "value": 39.83073795766592}, {"color": "#0602FF", "id": "10.0.0.5", "label": "10.0.0.5", "shape": "dot", "title": "Node: 10.0.0.5 - Weight: 32.044281272929645", "value": 42.044281272929645}, {"color": "#0602FF", "id": "10.0.0.4", "label": "10.0.0.4", "shape": "dot", "title": "Node: 10.0.0.4 - Weight: 31.986662214645516", "value": 41.98666221464552}, {"color": "#0602FF", "id": "10.0.0.6", "label": "10.0.0.6", "shape": "dot", "title": "Node: 10.0.0.6 - Weight: 31.97811391778884", "value": 41.97811391778884}, {"color": "#0602FF", "id": "10.0.0.7", "label": "10.0.0.7", "shape": "dot", "title": "Node: 10.0.0.7 - Weight: 31.961333309416688", "value": 41.96133330941669}, {"color": "#0602FF", "id": "10.0.0.14", "label": "10.0.0.14", "shape": "dot", "title": "Node: 10.0.0.14 - Weight: 31.192776771439384", "value": 41.192776771439384}, {"color": "#0602FF", "id": "10.0.0.28", "label": "10.0.0.28", "shape": "dot", "title": "Node: 10.0.0.28 - Weight: 30.422254686424164", "value": 40.42225468642417}, {"color": "#0c04FF", "id": "10.0.0.29", "label": "10.0.0.29", "shape": "dot", "title": "Node: 10.0.0.29 - Weight: 15.328790432519812", "value": 25.32879043251981}, {"color": "#0602FF", "id": "10.0.0.15", "label": "10.0.0.15", "shape": "dot", "title": "Node: 10.0.0.15 - Weight: 31.305263373097407", "value": 41.305263373097404}, {"color": "#0602FF", "id": "10.0.0.17", "label": "10.0.0.17", "shape": "dot", "title": "Node: 10.0.0.17 - Weight: 31.334701615303867", "value": 41.33470161530387}, {"color": "#0602FF", "id": "10.0.0.16", "label": "10.0.0.16", "shape": "dot", "title": "Node: 10.0.0.16 - Weight: 31.230470996930812", "value": 41.23047099693081}, {"color": "#0602FF", "id": "10.0.0.12", "label": "10.0.0.12", "shape": "dot", "title": "Node: 10.0.0.12 - Weight: 31.667442734438442", "value": 41.66744273443844}, {"color": "#0602FF", "id": "10.0.0.13", "label": "10.0.0.13", "shape": "dot", "title": "Node: 10.0.0.13 - Weight: 31.42343007902031", "value": 41.42343007902031}, {"color": "#0602FF", "id": "10.0.0.39", "label": "10.0.0.39", "shape": "dot", "title": "Node: 10.0.0.39 - Weight: 29.54259620335435", "value": 39.54259620335435}, {"color": "#0602FF", "id": "10.0.0.11", "label": "10.0.0.11", "shape": "dot", "title": "Node: 10.0.0.11 - Weight: 31.58731749863256", "value": 41.58731749863256}, {"color": "#0602FF", "id": "10.0.0.10", "label": "10.0.0.10", "shape": "dot", "title": "Node: 10.0.0.10 - Weight: 31.373844650167225", "value": 41.37384465016723}, {"color": "#0602FF", "id": "10.0.0.38", "label": "10.0.0.38", "shape": "dot", "title": "Node: 10.0.0.38 - Weight: 29.954991097560043", "value": 39.95499109756004}]);
+        edges = new vis.DataSet([{"from": "10.0.0.0", "to": "10.0.0.21"}, {"from": "10.0.0.0", "to": "10.0.0.35"}, {"from": "10.0.0.0", "to": "10.0.0.34"}, {"from": "10.0.0.0", "to": "10.0.0.20"}, {"from": "10.0.0.0", "to": "10.0.0.36"}, {"from": "10.0.0.0", "to": "10.0.0.22"}, {"from": "10.0.0.0", "to": "10.0.0.23"}, {"from": "10.0.0.0", "to": "10.0.0.37"}, {"from": "10.0.0.0", "to": "10.0.0.33"}, {"from": "10.0.0.0", "to": "10.0.0.27"}, {"from": "10.0.0.0", "to": "10.0.0.26"}, {"from": "10.0.0.0", "to": "10.0.0.32"}, {"from": "10.0.0.0", "to": "10.0.0.18"}, {"from": "10.0.0.0", "to": "10.0.0.24"}, {"from": "10.0.0.0", "to": "10.0.0.30"}, {"from": "10.0.0.0", "to": "10.0.0.31"}, {"from": "10.0.0.0", "to": "10.0.0.25"}, {"from": "10.0.0.0", "to": "10.0.0.19"}, {"from": "10.0.0.0", "to": "10.0.0.42"}, {"from": "10.0.0.0", "to": "10.0.0.43"}, {"from": "10.0.0.0", "to": "10.0.0.41"}, {"from": "10.0.0.0", "to": "10.0.0.9"}, {"from": "10.0.0.0", "to": "10.0.0.8"}, {"from": "10.0.0.0", "to": "10.0.0.40"}, {"from": "10.0.0.0", "to": "10.0.0.50"}, {"from": "10.0.0.0", "to": "10.0.0.44"}, {"from": "10.0.0.0", "to": "10.0.0.45"}, {"from": "10.0.0.0", "to": "10.0.0.47"}, {"from": "10.0.0.0", "to": "10.0.0.46"}, {"from": "10.0.0.0", "to": "10.0.0.3"}, {"from": "10.0.0.0", "to": "10.0.0.2"}, {"from": "10.0.0.0", "to": "10.0.0.48"}, {"from": "10.0.0.0", "to": "10.0.0.1"}, {"from": "10.0.0.0", "to": "10.0.0.49"}, {"from": "10.0.0.0", "to": "10.0.0.5"}, {"from": "10.0.0.0", "to": "10.0.0.4"}, {"from": "10.0.0.0", "to": "10.0.0.6"}, {"from": "10.0.0.0", "to": "10.0.0.7"}, {"from": "10.0.0.0", "to": "10.0.0.14"}, {"from": "10.0.0.0", "to": "10.0.0.28"}, {"from": "10.0.0.0", "to": "10.0.0.29"}, {"from": "10.0.0.0", "to": "10.0.0.15"}, {"from": "10.0.0.0", "to": "10.0.0.17"}, {"from": "10.0.0.0", "to": "10.0.0.16"}, {"from": "10.0.0.0", "to": "10.0.0.12"}, {"from": "10.0.0.0", "to": "10.0.0.13"}, {"from": "10.0.0.0", "to": "10.0.0.39"}, {"from": "10.0.0.0", "to": "10.0.0.11"}, {"from": "10.0.0.0", "to": "10.0.0.10"}, {"from": "10.0.0.0", "to": "10.0.0.38"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
