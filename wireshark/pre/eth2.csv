@@ -1,0 +1,3 @@
+"No.","Time","Source","Destination","Protocol","Length","Info"
+"1","0.000000","guillermo-VirtualBox.local","ip6-allrouters","ICMPv6","70","Router Solicitation from 46:a5:3d:fa:e5:c0"
+"2","0.000339","fe80::4da:8cff:fe81:81c","ip6-allrouters","ICMPv6","70","Router Solicitation from 06:da:8c:81:08:1c"
