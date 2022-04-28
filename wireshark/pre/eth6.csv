@@ -1,0 +1,4 @@
+"No.","Time","Source","Destination","Protocol","Length","Info"
+"1","0.000000","fe80::48c3:ffff:fec1:29e6","ip6-allrouters","ICMPv6","70","Router Solicitation from 4a:c3:ff:c1:29:e6"
+"2","0.000153","fe80::141c:61ff:fe26:e017","ip6-allrouters","ICMPv6","70","Router Solicitation from 16:1c:61:26:e0:17"
+"3","0.000209","fe80::b4be:7cff:feb8:5c90","ip6-allrouters","ICMPv6","70","Router Solicitation from b6:be:7c:b8:5c:90"

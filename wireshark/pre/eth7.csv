@@ -1,0 +1,6 @@
+"No.","Time","Source","Destination","Protocol","Length","Info"
+"1","0.000000","fe80::4425:c5ff:fea6:5c78","ip6-allrouters","ICMPv6","70","Router Solicitation from 46:25:c5:a6:5c:78"
+"2","0.000240","fe80::f810:fcff:fe30:6383","ip6-allrouters","ICMPv6","70","Router Solicitation from fa:10:fc:30:63:83"
+"3","0.000315","fe80::5c43:f4ff:fec1:bf4","ip6-allrouters","ICMPv6","70","Router Solicitation from 5e:43:f4:c1:0b:f4"
+"4","0.000367","fe80::c0be:27ff:fe56:cf01","ip6-allrouters","ICMPv6","70","Router Solicitation from c2:be:27:56:cf:01"
+"5","0.000416","fe80::ec59:2fff:fef2:2128","ip6-allrouters","ICMPv6","70","Router Solicitation from ee:59:2f:f2:21:28"

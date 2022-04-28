@@ -1,0 +1,2 @@
+"No.","Time","Source","Destination","Protocol","Length","Info"
+"1","0.000000","guillermo-VirtualBox.local","ff02::fb","MDNS","180","Standard query 0x0000 PTR _ftp._tcp.local, ""QM"" question PTR _nfs._tcp.local, ""QM"" question PTR _afpovertcp._tcp.local, ""QM"" question PTR _smb._tcp.local, ""QM"" question PTR _sftp-ssh._tcp.local, ""QM"" question PTR _webdavs._tcp.local, ""QM"" question PTR _webdav._tcp.local, ""QM"" question"
